@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+
+import React from 'react';
+
 import './App.css';
+
+import Profile from './components/Profile';
+import Userlist from './components/Userlist';
+
+// importo el estado global
+import State from './context/user/State';
+
+// importo Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <State>
+      <div className="container p-4">
+        <div className="row">
+          <div className="col-md-7">
+            <Userlist />
+          </div>
+          <div className="col-md-5">
+            <Profile />
+          </div>
+        </div>
+      </div>
+      
+    </State>
   );
 }
 
